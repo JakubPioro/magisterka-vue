@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+import primeui from 'tailwindcss-primeui';
+import textshadow from 'tailwindcss-textshadow';
 export default {
   content: [
     "./index.html",
@@ -18,9 +20,7 @@ export default {
     },
   },
   plugins: [
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('tailwindcss-primeui'),
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    require('tailwindcss-textshadow'),
+    primeui,
+    textshadow,
   ]
 }
