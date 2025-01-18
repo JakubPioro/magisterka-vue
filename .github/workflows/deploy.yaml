@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - actions # Nasłuchuje zmian w branchu "actions"
-
+  workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
