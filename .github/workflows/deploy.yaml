@@ -1,34 +1,34 @@
-name: Deploy Vue App
+name: Build and Deploy Vue App
 
 on:
   push:
     branches:
-      - actions
+      - actions # Nasłuchuje zmian w branchu "actions"
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      # sprawdzanie kodu repozytorium
+      # 1. Sprawdzenie kodu
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Zainstaluj Node.js
+      # 2. Ustawienie Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '22' # Wersja Node.js zgodna z projektem
+          node-version: '18'
 
-      # Instalacja zależności
+      # 3. Instalacja zależności
       - name: Install dependencies
         run: npm install
 
-      # Uruchom budowanie aplikacji
+      # 4. Budowanie aplikacji
       - name: Build project
         run: npm run build
 
-      # Deploy na GitHub Pages
+      # 5. Deploy na GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
